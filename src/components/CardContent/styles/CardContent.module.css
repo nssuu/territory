@@ -1,17 +1,11 @@
-.card {
-    width: 300px;
+.cardBorder {
+    width: 500px;
+    height: 200px;
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
     margin: 16px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .cardTitle {
-    margin-top: 0;
-  }
-  
-  .cardDescription {
-    margin-bottom: 0;
+    padding: auto;
   }
   
