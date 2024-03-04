@@ -1,3 +1,5 @@
+'use client';
+
 import CardContent from '../components/CardContent/CardContent';
 
 const galleryData = [
