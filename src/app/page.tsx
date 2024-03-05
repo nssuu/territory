@@ -1,7 +1,7 @@
 "use client";
 
 import axios from "axios";
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import useSWR from "swr";
 import CircleLoader from "react-spinners/CircleLoader";
 import CardContent from "@/components/CardContent/CardContent";
