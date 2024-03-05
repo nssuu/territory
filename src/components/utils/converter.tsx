@@ -1,20 +1,21 @@
 import CardData from "../CardContent/interface/CardData";
 import GradientBarAttributes from "../GradientBar/interface/GradientBarAttributes";
 
-
-function convertJsonToCardData(json: any[]): CardData[] { // eslint-disable-line @typescript-eslint/no-explicit-any
-  return json.map((content: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
+function convertJsonToCardData(json: Record<string, unknown>[]): CardData[] {
+  return json.map((content: Record<string, unknown>): CardData => {
     return {
-      id: content.id,
-      name: content.name,
-      houseColours: content.houseColours,
-      founder: content.founder,
-      animal: content,
+      id: content.id as string,
+      name: content.name as string,
+      houseColours: content.houseColours as string,
+      founder: content.founder as string,
+      animal: content.animal as string,
     };
   });
 }
 
-function convertCardDataToJson(cardData: CardData[]): any[] { // eslint-disable-line @typescript-eslint/no-explicit-any
+function convertCardDataToJson(
+  cardData: CardData[],
+): Record<string, unknown>[] {
   return cardData.map((content: CardData) => {
     return {
       id: content.id,
