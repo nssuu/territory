@@ -27,7 +27,7 @@ function convertCardDataToJson(
   });
 }
 
-function convertInheritGradientBar(
+function generateGradientBar(
   id: string,
   houseColours: string,
 ): GradientBarAttributes {
@@ -43,7 +43,7 @@ function convertInheritGradientBar(
 const exports = {
   convertJsonToCardData,
   convertCardDataToJson,
-  convertInheritGradientBar,
+  generateGradientBar,
 };
 
 export default exports;

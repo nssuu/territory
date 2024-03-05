@@ -12,7 +12,7 @@ type CardContentProps = {
 const CardContent: React.FC<CardContentProps> = (props) => {
   const { data } = props;
 
-  const gradientBarProps = converters.convertInheritGradientBar(
+  const gradientBarProps = converters.generateGradientBar(
     data.id,
     data.houseColours,
   );
