@@ -35,9 +35,19 @@ function buildEndpointURL(baseURL: string, endpoint: string): string {
   return "";
 }
 
+const localStorageCheck = (): boolean => {
+  if (typeof window !== 'undefined' && window.localStorage){
+    return true;
+  }
+  return false;
+}
+
 export default function Page() {
   const savedBaseAPIURL = useMemo(() => {
-    const savedURL = localStorage.getItem("baseAPIURL");
+    let savedURL = null;
+    if (localStorageCheck()){
+      savedURL = localStorage.getItem("baseAPIURL")
+    }
     if (savedURL != null) {
       return savedURL;
     }
@@ -45,7 +55,9 @@ export default function Page() {
   }, []);
 
   const saveBaseAPIURL = useCallback((url: string) => {
-    localStorage.setItem("baseAPIURL", url);
+    if (localStorageCheck()) {
+      localStorage.setItem("baseAPIURL", url);
+    }
   }, []);
 
   const [baseAPIURL, setBaseAPIURL] = useState(
