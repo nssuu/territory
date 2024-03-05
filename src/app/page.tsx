@@ -2,9 +2,11 @@
 
 import axios from "axios";
 import useSWR from "swr";
+import CircleLoader from "react-spinners/CircleLoader";
 import CardContent from "@/components/CardContent/CardContent";
 import CardData from "@/components/CardContent/interface/CardData";
 import converters from "@/components/utils/converter";
+import { CSSProperties } from "react";
 
 const BASE_API_URL = "http://localhost:4000";
 const HOUSES_API_URL = `${BASE_API_URL}/houses`;
@@ -21,6 +23,7 @@ async function fetchGaleryData(url: string): Promise<CardData[]> {
   return [];
 }
 
+
 export default function Page() {
   const {
     data: galeryData,
@@ -30,8 +33,15 @@ export default function Page() {
 
   return (
     <div className="grid place-items-center h-screen p-4">
+      <CircleLoader
+        color="black"
+        loading={isLoading}
+        size={150}
+        speedMultiplier={1}
+      />
+
       {isLoading ? (
-        <div>Loading...</div>
+        <div></div>
       ) : error ? (
         <div>Error loading data</div>
       ) : galeryData != null ? (
